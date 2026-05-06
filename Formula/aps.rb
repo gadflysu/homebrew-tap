@@ -1,35 +1,35 @@
 class Aps < Formula
   desc "Interactive session picker for Claude Code and Opencode"
   homepage "https://github.com/gadflysu/aps"
-  version "0.2.5"
+  version "0.2.6"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/gadflysu/aps/releases/download/v#{version}/aps_darwin_arm64.tar.gz"
-      sha256 "85421bfb2cfb66a734cfc08fe54429ad85a8ffa205cc34af5089e4502f3b3181"
+      url "https://github.com/gadflysu/aps/releases/download/v\#{version}/aps_darwin_arm64.tar.gz"
+      sha256 "691125f829a2d36cb297d0c01ec014d74599d50f30572d2bde48e1c5633d6bea"
     else
-      url "https://github.com/gadflysu/aps/releases/download/v#{version}/aps_darwin_amd64.tar.gz"
-      sha256 "c742772a50115effb0704d0c7eea0abcf620b70eae1e778e6d84ff043b33ca45"
+      url "https://github.com/gadflysu/aps/releases/download/v\#{version}/aps_darwin_amd64.tar.gz"
+      sha256 "fc7ddc4b6667e7fcf6e4a0e6fdc13fe030ab6f0d8e8aaecdd7bcd69ab4ba7a22"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/gadflysu/aps/releases/download/v#{version}/aps_linux_arm64.tar.gz"
-      sha256 "aebd70c2fe7dac47556afd76bbdd35c564fa110ed71ce5811e0f08af96b1f27f"
+      url "https://github.com/gadflysu/aps/releases/download/v\#{version}/aps_linux_arm64.tar.gz"
+      sha256 "216ad646d3a8e72e75a6930a709033dd6f0a0a6b73a8b873f1be815ab1824f24"
     else
-      url "https://github.com/gadflysu/aps/releases/download/v#{version}/aps_linux_amd64.tar.gz"
-      sha256 "a0392f7f2c7b75a0954c6ef5bb1920c07146fe1d349187bd250a9606e52b4a05"
+      url "https://github.com/gadflysu/aps/releases/download/v\#{version}/aps_linux_amd64.tar.gz"
+      sha256 "6928d2f9b3fbb68ab07a2ed17782127c6b0245641fb5863720daa28b9fd7ea5e"
     end
   end
 
   def install
     bin.install "aps"
-    system "/usr/bin/xattr", "-dr", "com.apple.quarantine", "#{bin}/aps"
+    system "/usr/bin/xattr", "-dr", "com.apple.quarantine", "\#{bin}/aps"
   end
 
   test do
-    assert_match "Usage", shell_output("#{bin}/aps -h")
+    assert_match "aps", shell_output("\#{bin}/aps -V")
   end
 end
