@@ -30,6 +30,6 @@ class Aps < Formula
   end
 
   test do
-    assert_match "aps", shell_output("#{bin}/aps --version")
+    assert_match "aps", shell_output("#{bin}/aps -V")
   end
 end
