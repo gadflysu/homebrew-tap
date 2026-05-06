@@ -26,9 +26,6 @@ class Aps < Formula
 
   def install
     bin.install "aps"
-  end
-
-  def post_install
     system "/usr/bin/xattr", "-dr", "com.apple.quarantine", "#{bin}/aps"
   end
 
