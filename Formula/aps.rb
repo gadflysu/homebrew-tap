@@ -24,9 +24,17 @@ class Aps < Formula
     end
   end
 
+  head "https://github.com/gadflysu/aps.git", branch: "master"
+
+  depends_on "go" => :build
+
   def install
-    bin.install "aps"
-    system "/usr/bin/xattr", "-dr", "com.apple.quarantine", "#{bin}/aps"
+    if build.head?
+      system "go", "build", "-o", "#{bin}/aps", "."
+    else
+      bin.install "aps"
+      system "/usr/bin/xattr", "-dr", "com.apple.quarantine", "#{bin}/aps"
+    end
   end
 
   test do
