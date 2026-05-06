@@ -28,6 +28,10 @@ class Aps < Formula
     bin.install "aps"
   end
 
+  def post_install
+    system "/usr/bin/xattr", "-dr", "com.apple.quarantine", "#{bin}/aps"
+  end
+
   test do
     assert_match "aps", shell_output("#{bin}/aps --version")
   end
