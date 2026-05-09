@@ -26,7 +26,7 @@ class Aps < Formula
 
   def install
     bin.install "aps"
-    system "/usr/bin/xattr", "-dr", "com.apple.quarantine", "#{bin}/aps"
+    system "/usr/bin/xattr", "-dr", "com.apple.quarantine", "#{bin}/aps" if OS.mac?
   end
 
   test do
