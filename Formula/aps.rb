@@ -1,32 +1,32 @@
 class Aps < Formula
   desc "Interactive session picker for Claude Code and Opencode"
   homepage "https://github.com/gadflysu/aps"
-  version "0.2.9"
+  version "0.3.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/gadflysu/aps/releases/download/v#{version}/aps_darwin_arm64.tar.gz"
-      sha256 "3773f5444b06c084f73dad19c83fe92cc965b7654373c7e8f04bf3cd766dfa16"
+      sha256 "10ee1521f5063157290fcac53fa5dd60460250fbeec1ec1a6885adc20bb6a900"
     else
       url "https://github.com/gadflysu/aps/releases/download/v#{version}/aps_darwin_amd64.tar.gz"
-      sha256 "630c64ab9367e46e2b69b460e08d31dbb932ada19a02f4379da5b08d394f0b0a"
+      sha256 "ced0fd053167ae62fe86bf40f789c30a93b8ea6888eee1a2b420847d812583d2"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
       url "https://github.com/gadflysu/aps/releases/download/v#{version}/aps_linux_arm64.tar.gz"
-      sha256 "2a0ff86154c7700e9c3f209a448d09419944d71ec6391578c772f50fe926104d"
+      sha256 "30638c8aadfa5e29c0034cdd025df2009c68594e770fe79b17c9de29bf809dea"
     else
       url "https://github.com/gadflysu/aps/releases/download/v#{version}/aps_linux_amd64.tar.gz"
-      sha256 "cc224345726864b4aa3ae31a16d2ee47eb3518ebe757b65a797dc1c8bee1cd57"
+      sha256 "fb4d00d272025a20b155da29171f7dd7bdac7701ad640802a56902ca06e77adb"
     end
   end
 
   def install
     bin.install "aps"
-    system "/usr/bin/xattr", "-dr", "com.apple.quarantine", "#{bin}/aps" if OS.mac?
+    system "/usr/bin/xattr", "-dr", "com.apple.quarantine", "#{bin}/aps"
   end
 
   test do
