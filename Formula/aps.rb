@@ -7,20 +7,20 @@ class Aps < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/gadflysu/aps/releases/download/v#{version}/aps_darwin_arm64.tar.gz"
-      sha256 "690221217373667f446ab229198b0b3b6971a41df341d8f34bc7ade8e09a9fc0"
+      sha256 "8093f06cee3363021a8aac2fb1004803544dfce3983412b34150b1dd2a921823"
     else
       url "https://github.com/gadflysu/aps/releases/download/v#{version}/aps_darwin_amd64.tar.gz"
-      sha256 "f608467270519539563c313a23c2c29026fa58cf87971b3d7481cd9da49a9ecc"
+      sha256 "ead15b6cd8b3998ee3bfdab63cae99c38df9ce0ddf121db18b73a2e5c9926256"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
       url "https://github.com/gadflysu/aps/releases/download/v#{version}/aps_linux_arm64.tar.gz"
-      sha256 "51e20a86aacedc5215bebad22051c28560993c7741f78c69ecd2e28ef1eccbd8"
+      sha256 "bd0eea78d4bc0c91f039222a1a37448b34bbde2b446621dda7379d42f00d0e8d"
     else
       url "https://github.com/gadflysu/aps/releases/download/v#{version}/aps_linux_amd64.tar.gz"
-      sha256 "72b67bf3399093b833f033f5d6d2502851b5c35baea9fac1712669884d70641b"
+      sha256 "fcd8192fdf6139e370acce214b23aa7868445d3d2dfbea073698c1facd528b14"
     end
   end
 
